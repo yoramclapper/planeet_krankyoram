@@ -39,11 +39,15 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS = [
+INTERN_APPS = [
     "core.apps.CoreConfig",
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS
+EXTERN_APPS = [
+    'bootstrap5',
+]
+
+INSTALLED_APPS = DEFAULT_APPS + INTERN_APPS + EXTERN_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
