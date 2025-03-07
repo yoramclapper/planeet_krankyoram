@@ -12,17 +12,21 @@
 
 
 <!-- Side navigation -->
-<div>
-    <ul>
-        {% for app in my_apps %}
-            <li>{{ app.display_name }}</li>
-        {% endfor %}
-    </ul>
-</div>
+<nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            {% for app in my_apps %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ app.url }}">{{ app.display_name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
 
 <!-- Page content -->
 <main class="container">
-    <h1>Welcome to planeet KrankYoram!</h1>
+    <h1>Welkom op planeet KrankYoram!</h1>
 </main>
 </body>
 </html>
