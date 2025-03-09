@@ -12,7 +12,7 @@
 
 
 <!-- Side navigation -->
-<nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <div class="container-fluid">
         <ul class="navbar-nav">
             {% for app in my_apps %}
@@ -25,8 +25,10 @@
 </nav>
 
 <!-- Page content -->
-<main class="container">
-    <h1>Welkom op planeet KrankYoram!</h1>
+<main class="container-fluid">
+    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center bg-body">
+        <h1>Welkom op planeet KrankYoram!</h1>
+    </div>
 </main>
 </body>
 </html>
