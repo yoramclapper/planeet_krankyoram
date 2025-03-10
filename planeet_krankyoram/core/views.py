@@ -1,5 +1,10 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView
 from .models import AppsLib
+
+
+def home(request):
+    return redirect("index")
 
 
 class IndexView(ListView):
