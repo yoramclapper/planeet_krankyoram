@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DEFAULT_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,15 +39,15 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-INTERN_APPS = [
-    "core.apps.CoreConfig",
+MY_APPS = [
+    "core",
 ]
 
-EXTERN_APPS = [
+EXTERNAL_APPS = [
     'bootstrap5',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + INTERN_APPS + EXTERN_APPS
+INSTALLED_APPS = DJANGO_APPS + MY_APPS + EXTERNAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
