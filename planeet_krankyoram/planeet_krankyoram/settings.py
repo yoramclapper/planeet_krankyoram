@@ -41,6 +41,7 @@ DJANGO_APPS = [
 
 MY_APPS = [
     "core",
+    "financien",
 ]
 
 EXTERNAL_APPS = [
