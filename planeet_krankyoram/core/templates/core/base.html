@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+
+
+<!-- Side navigation -->
+<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-primary">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            {% for app in my_apps %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == app.url%} active {% endif %}" href="{{ app.url }}">{{ app.display_name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+<!-- Page content -->
+{% block main %}
+{% endblock %}
+</body>
+</html>
