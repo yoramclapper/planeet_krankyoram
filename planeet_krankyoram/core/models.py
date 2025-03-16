@@ -4,6 +4,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 
 
+# DEPRECATED: MODEL TO DISPLAY APPS ON NAVBAR
+
 def validate_url_endpoints(value):
     if value[0] + value[-1] != '//':
         raise ValidationError("URL should start and end with '/'")

@@ -1,13 +1,10 @@
 from django.shortcuts import redirect
-from django.views.generic import ListView
-from .models import AppsLib
+from django.views.generic import TemplateView
 
 
 def home(request):
     return redirect("index")
 
 
-class IndexView(ListView):
-    context_object_name = "my_apps"
-    queryset = AppsLib.objects.filter(show=True)
+class IndexView(TemplateView):
     template_name = "core/index.html"

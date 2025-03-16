@@ -1,9 +1,6 @@
 from django.shortcuts import redirect
-from django.views.generic import ListView
-from core.models import AppsLib
+from django.views.generic import TemplateView
 
 
-class BudgetView(ListView):
-    context_object_name = "my_apps"
-    queryset = AppsLib.objects.filter(show=True)
+class BudgetView(TemplateView):
     template_name = "financien/budget.html"

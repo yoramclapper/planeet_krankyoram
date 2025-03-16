@@ -15,11 +15,12 @@
 <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-primary">
     <div class="container-fluid">
         <ul class="navbar-nav">
-            {% for app in my_apps %}
             <li class="nav-item">
-                <a class="nav-link {% if request.path == app.url%} active {% endif %}" href="{{ app.url }}">{{ app.display_name }}</a>
+                <a class="nav-link {% if request.path == '/index/'%} active {% endif %}" href='/index/'>Home</a>
             </li>
-            {% endfor %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/financien/'%} active {% endif %}" href='/financien/'>Financiën</a>
+            </li>
         </ul>
     </div>
 </nav>
