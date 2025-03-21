@@ -16,7 +16,7 @@ class BudgetCategory(models.Model):
 class Budget(models.Model):
     budget_name = models.CharField(max_length=255, unique=True)
     category = models.ForeignKey(BudgetCategory, models.SET_NULL, blank=True, null=True)
-    budget = models.IntegerField(validators=[MinValueValidator(0)])
+    budget = models.IntegerField(validators=[MinValueValidator(0)], verbose_name="Budget (in centen)")
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
