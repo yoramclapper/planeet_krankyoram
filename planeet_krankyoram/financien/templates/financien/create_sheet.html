@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+<main class="container-fluid">
+    <div class="vh-100 d-flex justify-content-center align-items-center bg-body">
+        <div class="row "></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+            <input type="submit" value="Submit">
+            </form>
+    </div>
+</main>
+{% endblock %}
+</body>
+</html>
