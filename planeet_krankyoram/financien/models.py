@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-import datetime
+from django.utils import timezone
 
 
 class BudgetCategory(models.Model):
@@ -25,7 +25,7 @@ class Budget(models.Model):
 
 class BudgetSheet(models.Model):
     sheet_name = models.CharField(max_length=255)
-    start_date = models.DateField(unique=True, default=datetime.datetime.now().date())
+    start_date = models.DateField(unique=True, default=timezone.now())
 
     def __str__(self):
         return self.sheet_name
