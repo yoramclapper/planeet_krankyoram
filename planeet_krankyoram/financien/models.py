@@ -25,7 +25,7 @@ class Budget(models.Model):
 
 class BudgetSheet(models.Model):
     sheet_name = models.CharField(max_length=255)
-    start_date = models.DateField(unique=True, default=timezone.now())
+    start_date = models.DateField(unique=True)
 
     def __str__(self):
         return self.sheet_name
