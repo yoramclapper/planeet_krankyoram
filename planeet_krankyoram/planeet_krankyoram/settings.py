@@ -47,7 +47,13 @@ MY_APPS = [
 
 EXTERNAL_APPS = [
     'bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS + EXTERNAL_APPS
 
