@@ -27,6 +27,12 @@ class BudgetSheet(models.Model):
     sheet_name = models.CharField(max_length=255)
     start_date = models.DateField(unique=True)
 
+    def create_actuals(self):
+        active_budgets = Budget.objects.filter(is_active=True)
+        BudgetActual.objects.bulk_create(
+            [BudgetActual(sheet_id=self.id, budget_id=budget.id, actual=0) for budget in active_budgets]
+        )
+
     def __str__(self):
         return self.sheet_name
 
