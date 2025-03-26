@@ -11,6 +11,7 @@ class BudgetSheetForm(ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.helper.add_input(Submit('submit', 'Save'))
+
     class Meta:
         model = BudgetSheet
         fields = ["sheet_name", "start_date"]
