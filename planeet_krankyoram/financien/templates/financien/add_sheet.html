@@ -1,17 +1,6 @@
-{% extends "base.html" %}
-{%load crispy_forms_tags %}
+{% extends "base_centralized_content.html" %}
+{% load crispy_forms_tags %}
 
-{% block main %}
-<main class="container-fluid">
-    <div class="vh-100 d-flex justify-content-center align-items-center bg-body">
-        <div class="row "></div>
-            <form action="" method="post">
-                {% csrf_token %}
-                {{ form|crispy }}
-            <input type="submit" value="Submit">
-            </form>
-    </div>
-</main>
+{% block center_content %}
+{% crispy form %}
 {% endblock %}
-</body>
-</html>/
