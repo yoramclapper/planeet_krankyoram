@@ -1,5 +1,16 @@
-{% extends "base_centralized_content.html" %}
+{% extends "base.html" %}
 
-{% block center_content %}
-<h1>Hier komen mijn financiën!</h1>
+{% block main %}
+<main class="container-fluid">
+    <div class="vh-100 d-flex justify-content-center align-items-center bg-body">
+        <div class="row">
+            <h1>{{sheet.sheet_name}}</h1>
+            {% for a in actuals %}
+                <p>{{a.actual}}</p>
+                <p>{{a.budget.budget_name}}</p>
+                <p>{{a.budget.category.category_name}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
 {% endblock %}

@@ -9,6 +9,13 @@ from .models import BudgetSheet, Budget, BudgetActual
 class BudgetView(TemplateView):
     template_name = "financien/budget.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        sheet = BudgetSheet.objects.latest("start_date")
+        context['sheet'] = sheet
+        context['actuals'] = BudgetActual.objects.filter(sheet_id=sheet.id)
+        return context
+
 
 class CreateSheetView(FormView):
     form_class = BudgetSheetForm
