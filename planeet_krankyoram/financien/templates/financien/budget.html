@@ -5,11 +5,26 @@
     <div class="vh-100 d-flex justify-content-center align-items-center bg-body">
         <div class="row">
             <h1>{{sheet.sheet_name}}</h1>
-            {% for a in actuals %}
-                <p>{{a.actual}}</p>
-                <p>{{a.budget.budget_name}}</p>
-                <p>{{a.budget.category.category_name}}</p>
-            {% endfor %}
+            <a href="#">Archief</a>
+            <a href="{% url 'add_sheet' %}">Nieuwe pagina toevoegen</a>
+            <table>
+                {% for c in categories %}
+                    <tr>
+                        <td>{{c.category_name}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% for a in actuals %}
+                        {% if a.budget.category_id == c.id %}
+                            <tr>
+                                <td>{{a.budget.budget_name}}</td>
+                                <td>{{a.budget.budget}}</td>
+                                <td>{{a.actual}}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </table>
         </div>
     </div>
 </main>

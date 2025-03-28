@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from .forms import BudgetSheetForm
-from .models import BudgetSheet, Budget, BudgetActual
+from .models import BudgetSheet, Budget, BudgetActual, BudgetCategory
 
 
 class BudgetView(TemplateView):
@@ -12,6 +12,7 @@ class BudgetView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         sheet = BudgetSheet.objects.latest("start_date")
+        context['categories'] = BudgetCategory.objects.all()
         context['sheet'] = sheet
         context['actuals'] = BudgetActual.objects.filter(sheet_id=sheet.id)
         return context
