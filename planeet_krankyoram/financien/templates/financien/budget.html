@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{a.budget.budget_name}}</td>
                             <td>{{a.budget.budget}}</td>
-                            <td><a href="#">{{a.actual}}</a></td>
+                            <td><a href="{% url 'update_actual' a.pk %}">{{a.actual}}</a></td>
                         </tr>
                     {% endif %}
                 {% endfor %}

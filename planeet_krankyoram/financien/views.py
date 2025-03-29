@@ -1,8 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from django.views.generic.edit import FormView
-from .forms import BudgetSheetForm
+from django.views.generic.edit import FormView, UpdateView
+from .forms import BudgetSheetForm, BudgetActualForm
 from .models import BudgetSheet, Budget, BudgetActual, BudgetCategory
 
 
@@ -37,5 +37,12 @@ class ArchiveView(ListView):
     template_name = 'financien/archive.html'
     model = BudgetSheet
     context_object_name = "budget_sheets"
+
+
+class ActualUpdateView(UpdateView):
+    form_class = BudgetActualForm
+    template_name = "financien/update_actual.html"
+    model = BudgetActual
+    success_url = "/financien/"
 
 
