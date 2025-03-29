@@ -8,25 +8,21 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-
-
-
-<!-- Side navigation -->
-<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-primary">
     <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link {% if request.path == '/index/'%} active {% endif %}" href='/index/'>Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {% if request.path == '/financien/'%} active {% endif %}" href='/financien/'>Financiën</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
-<!-- Page content -->
-{% block main %}
-{% endblock %}
+        <!-- Navbar -->
+        <div class="row justify-content-start">
+            <div class="col-auto">
+                <a href='/index/'>Home</a>
+            </div>
+            <div class="col-auto">
+                <a href='/financien/'>Financiën</a>
+            </div>
+        </div>
+
+    <!-- Page content -->
+    {% block main %}
+    {% endblock %}
+    </div>
 </body>
 </html>
