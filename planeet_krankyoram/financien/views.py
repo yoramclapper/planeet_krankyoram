@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import FormView
 from .forms import BudgetSheetForm
 from .models import BudgetSheet, Budget, BudgetActual, BudgetCategory
@@ -33,12 +33,9 @@ class CreateSheetView(FormView):
         return super().form_valid(form)
 
 
-def sheet_form_handler(request):
-    if request.method == "POST":
-        form = BudgetSheetForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect("/financien/")
-    else:
-        form = BudgetSheetForm()
-    return render(request, "financien/add_sheet.html", {"form": form})
+class ArchiveView(ListView):
+    template_name = 'financien/archive.html'
+    model = BudgetSheet
+    context_object_name = "budget_sheets"
+
 

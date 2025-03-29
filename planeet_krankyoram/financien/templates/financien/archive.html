@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+<main>
+<div class="row">
+    <div class="col-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Naam</th>
+                    <th scope="col">Start datum</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in budget_sheets %}
+                <tr>
+                    <td><a href="#">{{s.sheet_name}}</a></td>
+                    <td>{{s.start_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</main>
+{% endblock %}

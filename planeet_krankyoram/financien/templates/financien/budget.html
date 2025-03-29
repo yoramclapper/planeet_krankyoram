@@ -7,10 +7,10 @@
         <h1>{{sheet.sheet_name}}</h1>
     </div>
     <div class="col-auto">
-        <a class="btn btn-primary" role="button" href="#">Archief</a>
+        <a class="btn btn-primary" role="button" href="{% url 'archive' %}">Archief</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-primary" role="button" href="{% url 'add_sheet' %}">Nieuwe pagina toevoegen</a>
+        <a class="btn btn-primary" role="button" href="{% url 'add_sheet' %}">Start nieuwe periode</a>
     </div>
 </div>
 <div class="row">
