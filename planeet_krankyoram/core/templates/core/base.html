@@ -8,19 +8,19 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-    <div class="container-fluid">
 
-        <!-- Navbar -->
-        <div class="row justify-content-start">
-            <div class="col-auto">
-                <a href='/index/'>Home</a>
-            </div>
-            <div class="col-auto">
-                <a href='/financien/'>Financiën</a>
+    <!-- Side navigation -->
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <div class="container-fluid navbar-nav">
+            <div class="navbar-nav">
+            <a class="nav-link {% if request.path == '/index/'%} active {% endif %}" href='/index/'>Home</a>
+            <a class="nav-link {% if request.path == '/financien/'%} active {% endif %}" href='/financien/'>Financiën</a>
             </div>
         </div>
+    </nav>
 
     <!-- Page content -->
+    <div class="container-fluid">
     {% block main %}
     {% endblock %}
     </div>

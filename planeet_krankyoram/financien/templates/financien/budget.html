@@ -2,7 +2,7 @@
 
 {% block main %}
 <main>
-<div class="row align-items-center justify-content-start">
+<div class="row align-items-center justify-content-start mt-5 mb-3">
     <div class="col-auto">
         <h1>{{sheet.sheet_name}}</h1>
     </div>
@@ -10,7 +10,7 @@
         <a class="btn btn-primary" role="button" href="{% url 'archive' %}">Archief</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-primary" role="button" href="{% url 'add_sheet' %}">Start nieuwe periode</a>
+        <a class="btn btn-primary" role="button" href="{% url 'add_sheet' %}">Nieuw blad</a>
     </div>
 </div>
 <div class="row">
@@ -21,7 +21,7 @@
                 <tr>
                     <th scope="col">{{c.category_name}}</th>
                     <th scope="col">Budget</th>
-                    <th scope="col"> Werkelijk</th>
+                    <th scope="col" colspan="2"> Werkelijk</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +29,10 @@
                     {% if a.budget.category_id == c.id %}
                         <tr>
                             <td>{{a.budget.budget_name}}</td>
-                            <td>{{a.budget.budget}}</td>
-                            <td><a href="{% url 'update_actual' a.pk %}">{{a.actual}}</a></td>
+                            <td>{{a.budget.budget|floatformat:2}}</td>
+                            <td>{{a.actual|floatformat:2}}</td>
+                            <td><a href="{% url 'update_actual' a.pk %}" class="btn btn-outline-success btn-sm">Update</a></td>
+
                         </tr>
                     {% endif %}
                 {% endfor %}

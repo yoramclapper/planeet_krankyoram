@@ -2,24 +2,18 @@
 
 {% block main %}
 <main>
-<div class="row">
-    <div class="col-auto">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Naam</th>
-                    <th scope="col">Start datum</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for s in budget_sheets %}
-                <tr>
-                    <td><a href="#">{{s.sheet_name}}</a></td>
-                    <td>{{s.start_date}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="row mt-5">
+    <div class="col-5">
+        <div class="list-group">
+            {% for s in budget_sheets %}
+            <a href="{% url 'sheet' s.pk %}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{s.sheet_name}}</h5>
+              <small class="text-muted">{{s.start_date}}</small>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 </div>
 </main>
