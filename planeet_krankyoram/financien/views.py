@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormView, UpdateView
 from .forms import BudgetSheetForm, BudgetActualForm
@@ -9,15 +9,20 @@ from .models import BudgetSheet, Budget, BudgetActual, BudgetCategory
 class BudgetView(TemplateView):
     template_name = "financien/budget.html"
 
+    def dispatch(self, request, *args, **kwargs):
+        if not BudgetSheet.objects.exists():
+            return redirect('add_sheet')
+        else:
+            return super().dispatch(request, *args, **kwargs)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if 'pk' not in self.kwargs:
             sheet = BudgetSheet.objects.latest("start_date")
         else:
             sheet = BudgetSheet.objects.get(pk=self.kwargs.get("pk"))
-        context['categories'] = BudgetCategory.objects.all()
+        context['categories'] = BudgetCategory.objects.all().order_by('display_order')
         context['sheet'] = sheet
-        context['actuals'] = BudgetActual.objects.filter(sheet_id=sheet.id)
+        context['actuals'] = BudgetActual.objects.filter(sheet_id=sheet.id).order_by('-budget__budget')
         return context
 
 

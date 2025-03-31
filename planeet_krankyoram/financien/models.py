@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class BudgetCategory(models.Model):
     category_name = models.CharField(max_length=255, unique=True)
-    # display_order = models.IntegerField(validators=[MinValueValidator(1)])
+    display_order = models.IntegerField(unique=True, validators=[MinValueValidator(1)])
 
     class Meta:
         verbose_name_plural = 'Budget categories'
