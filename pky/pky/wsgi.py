@@ -1,5 +1,5 @@
 """
-WSGI config for planeet_krankyoram project.
+WSGI config for pky project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'planeet_krankyoram.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pky.settings')
 
 application = get_wsgi_application()
